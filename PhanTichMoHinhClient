@@ -1,0 +1,14 @@
+1.Client (Trình duyệt/Postman gửi Request)
+•	Hành động: Người dùng muốn xem danh sách sản phẩm, nên Client sẽ gửi một yêu cầu lên Server để lấy dữ liệu về.
+•	HTTP Method: Sử dụng GET. (Vì GET là phương thức chuẩn trong HTTP dùng để đọc/lấy dữ liệu mà không làm thay đổi hệ thống).
+•	URL dự kiến: http://localhost:8080/api/v1/products
+2. Server (Ứng dụng Spring Boot xử lý)
+•	Hành động: Khi nhận được yêu cầu từ URL trên, lớp Controller  trong Spring Boot sẽ được kích hoạt.
+•	Xử lý logic: Hàm được gắn thẻ @GetMapping("/products") sẽ chạy. Nó sẽ đóng vai trò như một người quản lý, ra lệnh cho hệ thống đi tìm danh sách sản phẩm ở nơi lưu trữ.
+3. Database (Cơ sở dữ liệu)
+•	Đóng vai trò: Là "kho hàng" lưu trữ thông tin thực tế của các sản phẩm.
+•	Giả lập trong bài toán này: Thay vì kết nối với một hệ quản trị CSDL phức tạp , chúng ta sẽ giả lập nó bằng bộ nhớ RAM. Cụ thể, chúng ta sẽ tạo ra một danh sách (List) lưu sẵn vài đối tượng Product  ngay bên trong mã Java. Server sẽ lấy dữ liệu trực tiếp từ danh sách này.
+4. Response (Kết quả trả về cho Client)
+•	Định dạng trả về: JSON (JavaScript Object Notation).
+•	Lý do: Khi Server lấy được danh sách Product (đối tượng Java) từ RAM, Spring Boot sẽ tự động dịch danh sách đó thành một mảng JSON. Định dạng JSON rất nhẹ, dễ đọc và là ngôn ngữ giao tiếp chuẩn mực nhất giữa Frontend và Backend hiện nay.
+
